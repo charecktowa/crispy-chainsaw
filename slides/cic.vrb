@@ -1,0 +1,79 @@
+\frametitle{Evolución diferencial}
+  \begin{columns}[T]
+    \begin{column}{0.5\textwidth}
+      \begin{block}{Pseudocódigo}
+        \begin{algorithm}[H]
+          \SetAlgoLined
+          \SetKwInOut{Input}{Input}
+          \SetKwInOut{Output}{Output}
+
+          \Input{Number of individuals NP}
+          \Output{Optimized solution P}
+
+          Generate $P = (x1, x2, ..., xNP)$\;
+
+          \Repeat{stopping condition is satisfied}{
+            \For{$i = 1$ to $NP$}{
+              Compute a mutant vector $v_i$\;
+              Create $u_i$ by the crossover of $v_i$ and $x_i$\;
+
+              \If{$f(u_i) < f(x_i)$}{
+                Insert $u_i$ into $Q$\;
+              }
+              \Else{
+                Insert $x_i$ into $Q$\;
+              }
+            }
+            $P \leftarrow Q$\;
+          }
+        \end{algorithm}
+      \end{block}
+    \end{column}
+
+    \begin{column}{0.5\textwidth}
+      \begin{block}{Python Code}
+        \begin{lstlisting}[language=Python, basicstyle=\footnotesize\ttfamily]
+def fit(self, fitness, max_iter: int):
+    self.dim = len(self.population[0])
+
+    obj_all = [fitness(x) for x in self.population]
+    best_vector = self.population[np.argmin(obj_all)]
+    best_obj = min(obj_all)
+    prev_obj = best_obj
+
+    obj_iter = []
+    for _ in range(max_iter):
+        for i in range(self.pop_size):
+            indexes = random.sample(
+                [index for index in range(self.pop_size) if index != i], 3
+            )
+
+            candidates = [self.population[index] for index in indexes]
+
+            mutated = self.mutation(candidates)
+            mutated = self.check_bounds(mutated)
+
+            trial = self.crossover(mutated, self.population[i])
+
+            obj_target = fitness(self.population[i])
+            obj_trial = fitness(trial)
+
+            if obj_trial < obj_target:
+                self.population[i] = trial
+
+        obj_all = [
+            fitness(x) for x in self.population
+        ]
+
+        best_obj = min(obj_all)
+
+        if best_obj < prev_obj:
+            best_vector = self.population[np.argmin(obj_all)]
+            prev_obj = best_obj
+            obj_iter.append(best_obj)
+
+    return [best_vector, best_obj, obj_iter]
+        \end{lstlisting}
+      \end{block}
+    \end{column}
+  \end{columns}

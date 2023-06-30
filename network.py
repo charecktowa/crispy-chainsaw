@@ -1,9 +1,5 @@
 import numpy as np
-from sklearn.datasets import load_iris
-from sklearn.model_selection import train_test_split
 
-from designer import NeuralNetworkDesigner
-from differential_evolution import DifferentialEvolution, sphere_function
 from utils import round_number
 
 from activation_function import functions
@@ -55,8 +51,9 @@ class NeuralNetwork:
             self.tfh.append(neurons[i][-1])
             self.connected.append(neurons[i][0])
 
+        inicio = self.h
         for i in range(self.m):
-            self.who[i] = neurons[i][1:-1]
+            self.who[i] = neurons[inicio][1:-1]
             self.tfo.append(neurons[i][-1])
             self.connected.append(neurons[i][0])
 
@@ -78,30 +75,3 @@ class NeuralNetwork:
             neurons[i][-1] = round_number(neurons[i][-1])
 
         return neurons
-
-
-if __name__ == "__main__":
-    designer = NeuralNetworkDesigner(4, 3)
-    n, m, h = designer.n, designer.m, designer.h
-
-    limits = designer.create_limits()
-    neurons = designer.architecture
-
-    de = DifferentialEvolution(pop_size=30, cr=0.9, f=0.5)
-    pop = de.generate_population(bounds=limits)
-    best = de.fit(fitness=sphere_function, max_iter=10)
-
-    model = NeuralNetwork(input_layer=n, hidden_layer=h, output_layer=m)
-    neurons = model.get_neurons(best[0], neurons)
-
-    model.set_net_configuration(neurons)
-
-    X, y = load_iris(return_X_y=True)
-
-    predicted = []
-    for item in X_train:
-        outputs = model.forward(item)
-
-        predicted.append(np.argmax(outputs))
-
-    print(predicted)

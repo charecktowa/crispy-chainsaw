@@ -1,0 +1,13 @@
+\babel@toc {spanish}{}\relax 
+\beamer@sectionintoc {1}{Introducción}{3}{0}{1}
+\beamer@sectionintoc {2}{Objetivo}{4}{0}{2}
+\beamer@sectionintoc {3}{Redes neuronales}{5}{0}{3}
+\beamer@subsectionintoc {3}{1}{Funciones de activación}{6}{0}{3}
+\beamer@sectionintoc {4}{Aprendizaje evolutivo}{7}{0}{4}
+\beamer@subsectionintoc {4}{1}{Evolución diferencial}{8}{0}{4}
+\beamer@subsectionintoc {4}{2}{Pseudocódigo}{9}{0}{4}
+\beamer@sectionintoc {5}{Desarrollo}{13}{0}{5}
+\beamer@subsectionintoc {5}{1}{Representación del problema}{13}{0}{5}
+\beamer@sectionintoc {6}{Métricas}{16}{0}{6}
+\beamer@sectionintoc {7}{Experimentos}{17}{0}{7}
+\beamer@sectionintoc {8}{Resultados}{18}{0}{8}

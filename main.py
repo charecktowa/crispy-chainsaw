@@ -1,5 +1,5 @@
 import numpy as np
-from sklearn.datasets import load_iris
+from sklearn.datasets import load_iris, load_wine
 from sklearn.model_selection import train_test_split
 
 from designer import NeuralNetworkDesigner
@@ -32,7 +32,7 @@ def train(X, y, limits, n, m, h, neurons):
 
         return 1 - accuracy(y, predicted)
 
-    best = evolution.fit(fitness=fitness_function, max_iter=100
+    best = evolution.fit(fitness=fitness_function, max_iter=300)
     return best
 
 
@@ -52,12 +52,12 @@ def test(X, y, best, n, m, h, neurons):
 
 
 if __name__ == "__main__":
-    X, y = load_iris(return_X_y=True)
+    # X, y = load_iris(return_X_y=True)
+    X, y = load_wine(return_X_y=True)
 
     X_train, X_test, y_train, y_test = train_test_split(
         X,
         y,
-        random_state=42,
         test_size=0.2,
         stratify=y,
         shuffle=True,
@@ -70,8 +70,12 @@ if __name__ == "__main__":
 
     n, m, h = designer.n, designer.m, designer.h
 
+    print(n, m, h)
+
     limits = designer.create_limits()
     neurons = designer.architecture
+
+    print(neurons)
 
     x = train(
         X=X_train,
@@ -93,7 +97,7 @@ if __name__ == "__main__":
     y = test(X_train, y_train, x[0], n, m, h, neurons)
     z = test(X_test, y_test, x[0], n, m, h, neurons)
 
-    print(f"El mejor individuo fue: {x[0]} con fitnessde {x[1]}")
+    print(f"El mejor individuo fue: {x[0]} con fitness de {x[1]}")
 
     print(f"El accuracy del mejor individuo en el conjunto de entrenamiento fue {y}")
     print(f"El accuracy del mejor individuo en el conjunto de prueba fue {z}")

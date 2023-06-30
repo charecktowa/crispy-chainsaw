@@ -5,12 +5,20 @@ def sigmoid(x):
     return 1 / (1 + np.exp(-x))
 
 
+def tanh(x):
+    return np.tanh(x)
+
+
+def sinusoidal(x):
+    return np.sin(x)
+
+
 def linear(x):
     return x
 
 
-def softmax(x):
-    return np.exp(x) / np.sum(np.exp(x), axis=0)
+def hard_limit(x):
+    return 1 if x >= 0 else 0
 
 
 def relu(x):
@@ -23,8 +31,10 @@ def leakyrelu(x):
 
 functions = [
     sigmoid,
+    tanh,
+    sinusoidal,
     linear,
-    softmax,
+    hard_limit,
     relu,
     leakyrelu,
 ]

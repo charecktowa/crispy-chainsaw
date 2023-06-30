@@ -1,0 +1,48 @@
+\begin{thebibliography}{1}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\providecommand{\doi}[1]{https://doi.org/#1}
+
+\bibitem{misc_wine_109}
+Aeberhard, S., Forina, M.: {Wine}. UCI Machine Learning Repository (1991),
+  {DOI}: https://doi.org/10.24432/C5PC7J
+
+\bibitem{Alba-Cisneros2020}
+Alba-Cisneros, O., Espinal, A., López-Vázquez, G., Sotelo-Figueroa, M.A.,
+  Purata-Sifuentes, O.J., Calzada-Ledesma, V., Vázquez, R.A., Rostro-Gonzalez,
+  H.: {Direct and Indirect Evolutionary Designs of Artificial Neural Networks}.
+  Springer Nature (1 2020). \doi{10.1007/978-3-030-35445-931},
+  \url{https://doi.org/10.1007/978-3-030-35445-9_31}
+
+\bibitem{bento-2022}
+Bento, C.: {Multilayer Perceptron Explained with a Real-Life Example and Python
+  Code: Sentiment Analysis}  (1 2022),
+  \url{https://towardsdatascience.com/multilayer-perceptron-explained-with-a-real-life-example-and-python-code-sentiment-analysis-cb408ee93141}
+
+\bibitem{du-2016}
+Du, K.L., Swamy, M.N.S.: {Search and Optimization by Metaheuristics}.
+  Birkhäuser (8 2016)
+
+\bibitem{misc_iris_53}
+Fisher, R.A.: {Iris}. UCI Machine Learning Repository (1988), {DOI}:
+  https://doi.org/10.24432/C56C76
+
+\bibitem{garro-2015}
+Garro, B.A., Vázquez, R.A.: {Designing Artificial Neural Networks Using
+  Particle Swarm Optimization Algorithms}. Computational Intelligence and
+  Neuroscience  \textbf{2015},  1--20 (1 2015). \doi{10.1155/2015/369298},
+  \url{https://doi.org/10.1155/2015/369298}
+
+\bibitem{lopez-vazquez-2019}
+López-Vázquez, G., Ornelas-Rodríguez, M., Espinal, A., Soria-Alcaraz, J.A.,
+  Rojas-Domínguez, A., Puga, H., Carpio, M., Rostro-Gonzalez, H.:
+  {Evolutionary Spiking Neural Networks for Solving Supervised Classification
+  Problems}. Computational Intelligence and Neuroscience  \textbf{2019},  1--13
+  (3 2019). \doi{10.1155/2019/4182639},
+  \url{https://doi.org/10.1155/2019/4182639}
+
+\bibitem{zhou-2019}
+Zhou, Z.H., Yu, Y., Qian, C.: {Evolutionary Learning: Advances in Theories and
+  Algorithms}. Springer (6 2019)
+
+\end{thebibliography}

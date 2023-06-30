@@ -50,10 +50,12 @@ class DifferentialEvolution:
                 best_vector = self.population[np.argmin(obj_all)]
                 prev_obj = best_obj
                 obj_iter.append(best_obj)
+                """
                 print(
                     "Iteration: %d f([%s]) = %.5f"
                     % (_, np.around(best_vector, decimals=5), best_obj)
                 )
+                """
 
         return [best_vector, best_obj, obj_iter]
 

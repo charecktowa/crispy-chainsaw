@@ -1,5 +1,3 @@
-from differential_evolution import DifferentialEvolution, sphere_function
-
 from utils import round_number
 
 
@@ -15,7 +13,7 @@ class NeuralNetworkDesigner:
             "topology": (0, 1),
             "weight": (-4, 4),
             "bias": (-2, 2),
-            "af": (0, 4),
+            "af": (0, 6),
         }
 
     def create_limits(self):
@@ -45,28 +43,3 @@ class NeuralNetworkDesigner:
 
     def _calculate_dim(self) -> int:
         return (self.h * (self.n + 3)) + (self.m * (self.h + 3))
-
-
-if __name__ == "__main__":
-    designer = NeuralNetworkDesigner(4, 3)
-    print(
-        f"Input neurons: {designer.n}, Hidden neurons: {designer.h}, output neurons: {designer.m}"
-    )
-    print(
-        f"Total neurons: {designer.q}, Total elements for vector (DE): {designer.dim}"
-    )
-
-    network_limits = designer.create_limits()
-
-    de = DifferentialEvolution(pop_size=30, cr=0.9, f=0.5)
-    pop = de.generate_population(bounds=network_limits)
-    x = de.fit(fitness=sphere_function, max_iter=200)
-
-    print(x[0], len(x[0]))
-
-    import matplotlib.pyplot as plt
-
-    plt.plot(x[2], ".-")
-    plt.xlabel("Improvement number")
-    plt.ylabel("Fitness")
-    plt.show()
