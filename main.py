@@ -53,7 +53,7 @@ def test(X, y, best, n, m, h, neurons):
 
 if __name__ == "__main__":
     # X, y = load_iris(return_X_y=True)
-    X, y = load_wine(return_X_y=True)
+    X, y = load_iris(return_X_y=True)
 
     X_train, X_test, y_train, y_test = train_test_split(
         X,
